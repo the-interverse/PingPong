@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.red-indigo.min.css" />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <meta charset="utf-8">
     <title>Yasser Noori | Pong</title>
   </head>
@@ -9,7 +12,7 @@
     <script src="//code.jquery.com/jquery-1.11.1.js"></script>
     <span id ='test'></span>
     <style>
-      @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+      @import url("https://fonts.googleapis.com/css?family=Raleway");
     </style>
 <script>
 $(function(){
@@ -82,7 +85,7 @@ $(function(){
   }
 
   function drawBorder(){
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#ffffff";
     ctx.fillRect(0,0,GAME_SETTINGS.WIDTH,GAME_SETTINGS.BORDER_WIDTH);
     ctx.fillRect(0,GAME_SETTINGS.HEIGHT-GAME_SETTINGS.BORDER_WIDTH,GAME_SETTINGS.WIDTH,GAME_SETTINGS.BORDER_WIDTH);
   }
@@ -92,7 +95,7 @@ $(function(){
     var height = GAME_SETTINGS.HEIGHT/((num+1)*2);
     var y = height/2;
     var x = (GAME_SETTINGS.WIDTH-GAME_SETTINGS.NET.WIDTH)/2;
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#ffffff";
     while(y < GAME_SETTINGS.HEIGHT){
         ctx.fillRect(x,y,GAME_SETTINGS.NET.WIDTH,height);
         y += height*2;
@@ -122,15 +125,15 @@ $(function(){
           x: undefined,
           y: 310,
           size: 30,
-          font: "Arial",
+          font: "raleway",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: 2,
-          message: "START GAME",
-          color: {fill:undefined, stroke:undefined},
+          message: "Match Making",
+          color: {fill:"#ffffff", stroke:undefined},
           colorData: {
-            default: {fill:"#123456", stroke:undefined},
-            mouseover: {fill:"#ddeeff", stroke:undefined}
+            default: {fill:"#191919", stroke:undefined},
+            mouseover: {fill:"#444444", stroke:undefined}
           }
         },
         rect: {
@@ -141,14 +144,14 @@ $(function(){
           lineWidth: 2,
           color: {fill:undefined, stroke:undefined},
           colorData: {
-            default: {fill:"#1099cc", stroke:"#223344"},
-            mouseover: {fill:"#0686e0", stroke:"#223344"}
+            default: {fill:"#191919", stroke:undefined},
+            mouseover: {fill:"#444444", stroke:undefined}
           }
         },
         animation: {
-          maxCount: 100,
+          maxCount: 0,
           count: 0,
-          dir: 1,
+          dir: 0,
         }
       });
       mainLoop = start.loop;
@@ -193,7 +196,7 @@ $(function(){
           x: undefined,
           y: undefined,
           size: 30,
-          font: "Arial",
+          font: "raleway",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: 2,
@@ -205,9 +208,9 @@ $(function(){
           }
         },
         animation: {
-          maxCount: 100,
+          maxCount: 0,
           count: 0,
-          dir: 1,
+          dir: 0,
         }
       });
       mainLoop = waiting.loop;
@@ -264,7 +267,7 @@ $(function(){
           x: xPos,
           y: undefined,
           size: 25,
-          font: "Arial",
+          font: "raleway",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: 2,
@@ -281,7 +284,7 @@ $(function(){
           x: undefined,
           y: GAME_SETTINGS.HEIGHT-80,
           size: 20,
-          font: "Arial",
+          font: "raleway",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: 5,
@@ -310,7 +313,7 @@ $(function(){
           x: xPos,
           y: GAME_SETTINGS.HEIGHT/2+40,
           size: 28,
-          font: "Arial",
+          font: "raleway",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: undefined,
@@ -322,9 +325,9 @@ $(function(){
           }
         },
         animation: {
-          maxCount: 100,
+          maxCount: 0,
           count: 0,
-          dir: 1,
+          dir: 0,
         }
       });
       mainLoop = ready.loop;
@@ -439,11 +442,11 @@ $(function(){
           x: undefined,
           y: GAME_SETTINGS.HEIGHT/2-20,
           size: 32,
-          font: "Arial",
+          font: "raleway",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: undefined,
-          message: message?message:"Player Quit!",
+          message: message?message:"Player Left :(!",
           globalAlpha: undefined,
           color: {fill: undefined, stroke: undefined},
           colorData: {default:{fill: "#000000", stroke: undefined}}
@@ -458,7 +461,7 @@ $(function(){
           x: undefined,
           y: GAME_SETTINGS.HEIGHT/2+20,
           size: 25,
-          font: "Arial",
+          font: "raleway",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: undefined,
@@ -651,7 +654,7 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
         x : title.x + title.space * (i-middleIndex),
         y : title.y,
         size: title.size,
-        font: "'Press Start 2P'",
+        font: "raleway",
         textBaseline: "middle",
         textAlign: "center",
         lineWidth: title.lineWidth,
