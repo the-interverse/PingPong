@@ -19,7 +19,6 @@
 $(function(){
   var GAME_SETTINGS = null;
   var INTERVAL = 10;
-
   var socket = io();
   var canvas = document.createElement('canvas');
   $(canvas).css("display", "block");
@@ -31,7 +30,6 @@ $(function(){
   var interval = setInterval(function(){
     mainLoop();
   },INTERVAL);
-
   socket.on('connected', function(SERVER_GAME_SETTINGS){
     GAME_SETTINGS = SERVER_GAME_SETTINGS;
     $(canvas).attr("width", GAME_SETTINGS.WIDTH);
@@ -39,7 +37,6 @@ $(function(){
     document.body.appendChild(canvas);
     start.initialize();
   });
-
   socket.on('ready', function(position){
     waiting.destroy();
     ready.initialize(position);
@@ -48,17 +45,14 @@ $(function(){
     ready.destroy();
     playing.initialize();
   });
-
   socket.on('update', function(statuses){
     serverObjects = statuses;
   });
-
   socket.on('destroy', function(message){
     ready.destroy();
     playing.destroy();
     backToTitle.initialize(message);
   });
-
   function drawObjects(status){
     switch(status.shape){
       case "rectangle":
@@ -76,7 +70,6 @@ $(function(){
         break;
     }
   }
-
   function drawBackground(globalAlpha,color){
     ctx.save();
     ctx.globalAlpha = globalAlpha!==undefined?globalAlpha:1;
@@ -84,25 +77,22 @@ $(function(){
     ctx.fillRect(0,0,GAME_SETTINGS.WIDTH,GAME_SETTINGS.HEIGHT);
     ctx.restore();
   }
-
   function drawBorder(){
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#000000";
     ctx.fillRect(0,0,GAME_SETTINGS.WIDTH,GAME_SETTINGS.BORDER_WIDTH);
     ctx.fillRect(0,GAME_SETTINGS.HEIGHT-GAME_SETTINGS.BORDER_WIDTH,GAME_SETTINGS.WIDTH,GAME_SETTINGS.BORDER_WIDTH);
   }
-
   function drawNet(){
     var num = 10;
     var height = GAME_SETTINGS.HEIGHT/((num+1)*2);
     var y = height/2;
     var x = (GAME_SETTINGS.WIDTH-GAME_SETTINGS.NET.WIDTH)/2;
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#000000";
     while(y < GAME_SETTINGS.HEIGHT){
         ctx.fillRect(x,y,GAME_SETTINGS.NET.WIDTH,height);
         y += height*2;
     }
   }
-
   var start = new (function(){
     var start = this;
     start.opening = new Opening();
@@ -126,15 +116,15 @@ $(function(){
           x: undefined,
           y: 310,
           size: 30,
-          font: "raleway",
+          font: "Arial",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: 2,
-          message: "Match Making",
-          color: {fill:"#ffffff", stroke:undefined},
+          message: "START GAME",
+          color: {fill:undefined, stroke:undefined},
           colorData: {
-            default: {fill:"#191919", stroke:undefined},
-            mouseover: {fill:"#444444", stroke:undefined}
+            default: {fill:"#123456", stroke:undefined},
+            mouseover: {fill:"#ddeeff", stroke:undefined}
           }
         },
         rect: {
@@ -145,14 +135,14 @@ $(function(){
           lineWidth: 2,
           color: {fill:undefined, stroke:undefined},
           colorData: {
-            default: {fill:"#191919", stroke:undefined},
-            mouseover: {fill:"#444444", stroke:undefined}
+            default: {fill:"#1099cc", stroke:"#223344"},
+            mouseover: {fill:"#0686e0", stroke:"#223344"}
           }
         },
         animation: {
-          maxCount: 0,
+          maxCount: 100,
           count: 0,
-          dir: 0,
+          dir: 1,
         }
       });
       mainLoop = start.loop;
@@ -176,10 +166,8 @@ $(function(){
       waiting.initialize();
     };
   })();
-
   var waiting = new (function(){
     var waiting = this;
-
     waiting.text1 = new TextObject();
     waiting.text1.update = function(){
       var text = this.data.text;
@@ -190,18 +178,17 @@ $(function(){
       }
       text.globalAlpha = 0.2 + 0.7*(animation.count/100);
     };
-
     waiting.initialize = function(){
       waiting.text1.initialize(canvas,ctx,GAME_SETTINGS,{
         text:{
           x: undefined,
           y: undefined,
           size: 30,
-          font: "raleway",
+          font: "Arial",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: 2,
-          message: "Connecting Players...",
+          message: "WAITING FOR OPPONENT..",
           globalAlpha: undefined,
           color: {fill: undefined, stroke: undefined},
           colorData: {
@@ -209,9 +196,9 @@ $(function(){
           }
         },
         animation: {
-          maxCount: 0,
+          maxCount: 100,
           count: 0,
-          dir: 0,
+          dir: 1,
         }
       });
       mainLoop = waiting.loop;
@@ -224,19 +211,15 @@ $(function(){
     waiting.destroy = function(){
     }
   })();
-
   var ready = new (function(){
     var ready = this;
     ready.interval = null;
-
     ready.text1 = new TextObject();
-
     ready.text2 = new TextObject();
-
     ready.button1 = new ButtonObject();
     ready.button1.click = function(e){
       socket.emit('ready');
-      ready.text2.data.text.message = "Ready-Up...";
+      ready.text2.data.text.message = "WAITING FOR OPPONENT TO BE READY";
       ready.button1.data = null;
     };
     ready.button1.update = function(){
@@ -249,26 +232,24 @@ $(function(){
       }
       text.globalAlpha = 0.5 + 0.5*(animation.count/100);
     };
-
     ready.initialize = function(position){
       var xPos
       switch(position){
         case "left":
-          message = "<— (me) "
+          message = "< YOU  "
           xPos = GAME_SETTINGS.WIDTH*1/4;
           break;
         case "right":
-          message = "  (me) —>"
+          message = "  YOU >"
           xPos = GAME_SETTINGS.WIDTH*3/4;
           break;
       }
-
       ready.text1.initialize(canvas,ctx,GAME_SETTINGS,{
         text:{
           x: xPos,
           y: undefined,
           size: 25,
-          font: "raleway",
+          font: "Arial",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: 2,
@@ -285,11 +266,11 @@ $(function(){
           x: undefined,
           y: GAME_SETTINGS.HEIGHT-80,
           size: 20,
-          font: "raleway",
+          font: "Arial",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: 5,
-          message: "Hurry, Ready-Up!",
+          message: "CLICK [READY] TO GET READY",
           globalAlpha: undefined,
           color: {fill: undefined, stroke: undefined},
           colorData: {
@@ -306,7 +287,7 @@ $(function(){
           lineWidth: 2,
           color: {fill:undefined, stroke:undefined},
           colorData: {
-            default: {fill:"#000000", stroke:undefined},
+            default: {fill:"#ffce54", stroke:undefined},
             mouseover: {fill:"#f6bb42", stroke:undefined}
           }
         },
@@ -314,11 +295,11 @@ $(function(){
           x: xPos,
           y: GAME_SETTINGS.HEIGHT/2+40,
           size: 28,
-          font: "raleway",
+          font: "Arial",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: undefined,
-          message: "Ready?",
+          message: "READY",
           color: {fill:undefined, stroke:undefined},
           colorData: {
             default: {fill:"#123456", stroke:undefined},
@@ -326,9 +307,9 @@ $(function(){
           }
         },
         animation: {
-          maxCount: 0,
+          maxCount: 100,
           count: 0,
-          dir: 0,
+          dir: 1,
         }
       });
       mainLoop = ready.loop;
@@ -350,10 +331,8 @@ $(function(){
       canvas.removeEventListener("touchend",ButtonObject.prototype.events.touchend);
     };
   })();
-
   var playing = new (function(){
     var playing = this;
-
     playing.events={};
     playing.events.canvas=function(e){
       var x = e.changedTouches[0].clientX-e.changedTouches[0].target.offsetLeft;
@@ -370,7 +349,6 @@ $(function(){
         socket.emit('click', null, y);
       }
     }
-
     playing.initialize = function(){
       $('body').on('keydown', function(e){
         if(e.keyCode>=37 && e.keyCode<=40){
@@ -413,7 +391,6 @@ $(function(){
       document.body.removeEventListener("touchmove",playing.events.body);
     };
   })();
-
   var backToTitle = new (function(){
     var backToTitle = this;
     backToTitle.interval = null;
@@ -435,7 +412,6 @@ $(function(){
       }
       if(animation.count > 100) text.globalAlpha = ((animation.count-100)/150);
     };
-
     backToTitle.initialize = function(message){
       backToTitle.count =0;
       backToTitle.text1.initialize(canvas,ctx,GAME_SETTINGS,{
@@ -443,11 +419,11 @@ $(function(){
           x: undefined,
           y: GAME_SETTINGS.HEIGHT/2-20,
           size: 32,
-          font: "raleway",
+          font: "Arial",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: undefined,
-          message: message?message:"Player Left :(!",
+          message: message?message:"OPPONENT LEFT!",
           globalAlpha: undefined,
           color: {fill: undefined, stroke: undefined},
           colorData: {default:{fill: "#000000", stroke: undefined}}
@@ -462,11 +438,11 @@ $(function(){
           x: undefined,
           y: GAME_SETTINGS.HEIGHT/2+20,
           size: 25,
-          font: "raleway",
+          font: "Arial",
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: undefined,
-          message: "Back to Lobby...",
+          message: "GOING BACK TO START..",
           globalAlpha: undefined,
           color: {fill: undefined, stroke: undefined},
           colorData: {default:{fill: "#000000", stroke: undefined}}
@@ -505,36 +481,30 @@ $(function(){
     };
   })();
 });
-
 // Objects
 function TextObject(){}
-
 TextObject.prototype.initialize = function(canvas,ctx,GAME_SETTINGS,data){
   this.canvas = canvas;
   this.ctx = ctx;
   this.GAME_SETTINGS = GAME_SETTINGS;
   this.data = data;
-
   var text = this.data.text;
   var animation = data.animation;
   text.x = text.x?text.x:GAME_SETTINGS.WIDTH/2;
   text.y = text.y?text.y:GAME_SETTINGS.HEIGHT/2;
   text.color = text.colorData.default;
 };
-
 TextObject.prototype.draw = function(){
   if(!this.data) return;
   drawText(this.ctx, this.data.text);
 };
 TextObject.prototype.update = function(){
-
 }
 function ButtonObject(){
   TextObject.call(this);
 };
 ButtonObject.prototype = new TextObject();
 ButtonObject.prototype.constructor = ButtonObject;
-
 ButtonObject.prototype.initialize = function(canvas,ctx,GAME_SETTINGS,data){
   TextObject.prototype.initialize.call(this,canvas,ctx,GAME_SETTINGS,data);
   var rect = this.data.rect;
@@ -590,7 +560,6 @@ ButtonObject.prototype.mousemove = function(e){
     var rect = this.data.rect;
     var text = this.data.text;
     var mouseover = pointSquareCollusionCheck(x, y, rect);
-
     rect.color = mouseover?rect.colorData.mouseover:rect.colorData.default;
     text.color = mouseover?text.colorData.mouseover:text.colorData.default;
   }
@@ -609,24 +578,24 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
     size : 100,
     space : 100,
     lineWidth : 5,
-    color : {fill:"", stroke:""},
-    text : ""
+    color : {fill:"#ED5566", stroke:"#000000"},
+    text : "SMASH"
   }, {
     x : GAME_SETTINGS.WIDTH/2+150,
     y : 220,
     size : 60,
     space : 60,
     lineWidth : 5,
-    color : {fill:"", stroke:""},
-    text : ""
+    color : {fill:"#128123", stroke:"#000000"},
+    text : "PONG"
   }, {
     x : GAME_SETTINGS.WIDTH/2+217,
     y : 165,
     size : 12,
     space : 12,
     lineWidth : 5,
-    color : {fill:""},
-    text : ""
+    color : {fill:"#000000"},
+    text : "Ver. " + GAME_SETTINGS.VER
   }];
   this.title=[];
   for(var i=0; i<titleSetting.length; i++){
@@ -634,17 +603,13 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
   }
   this.count = -1;
   this.animationLayer = [];
-
   var opening = this;
   this.animationLayer[0] = [Hide(this.animationLayer[0], this.title[0], 0)];
   this.animationLayer[0].push(Down(this.animationLayer[0], this.title[0], 50, 500));
-
   this.animationLayer[1] = [Hide(this.animationLayer[1], this.title[1], 0)];
   this.animationLayer[1].push(Down(this.animationLayer[1], this.title[1], 150, 500));
-
   this.animationLayer[2] = [Hide(this.animationLayer[2], this.title[2], 0)];
   this.animationLayer[2].push(FadeIn(this.animationLayer[2], this.title[2], 250, 500));
-
   // Opening Functions
   function generateTitleText(title){
     var returnArray = [];
@@ -655,7 +620,7 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
         x : title.x + title.space * (i-middleIndex),
         y : title.y,
         size: title.size,
-        font: "raleway",
+        font: "'Press Start 2P'",
         textBaseline: "middle",
         textAlign: "center",
         lineWidth: title.lineWidth,
@@ -673,7 +638,6 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
     }
     return returnArray;
   }
-
   function Down(animationLayer, title, startCount, endCount){
     var actionData = [];
     return function closure(){
@@ -707,7 +671,6 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
       }
     }
   }
-
   function Hide(animationLayer, title, startCount, endCount){
     var data;
     return function closure(){
@@ -726,7 +689,6 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
       }
     }
   }
-
   function FadeIn(animationLayer, title, startCount, endCount){
     var actionData = [];
     return function closure(){
@@ -740,7 +702,6 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
       if(opening.count >= startCount && opening.count < endCount ){
         for(var i = 0 ; i < title.length ; i++){
           if(opening.count >= actionData[i].startCount){
-
             if(title[i].data.text.globalAlpha < 1){
               title[i].data.text.globalAlpha += 0.1;
             }else{
@@ -775,7 +736,6 @@ Opening.prototype.draw = function(){
     });
   });
 }
-
 //Common Functions
 function pointSquareCollusionCheck(x,y,square){
   if(x >= square.x-square.width/2 && x <= square.x+square.width/2 && y >= square.y-square.height/2 && y <= square.y+square.height/2 )
@@ -785,7 +745,6 @@ function drawRect(ctx, rect){
   if(!rect.color) return;
   ctx.save();
   ctx.beginPath();
-
   ctx.globalAlpha = rect.globalAlpha!==undefined?rect.globalAlpha:1;
   if(rect.color.fill){
     ctx.fillStyle = rect.color.fill;
@@ -803,7 +762,6 @@ function drawText(ctx, text){
   if(!text.color) return;
   ctx.save();
   ctx.beginPath();
-
   ctx.font = text.size+"px "+text.font;
   ctx.textAlign = text.textAlign;
   ctx.textBaseline = text.textBaseline;
