@@ -605,24 +605,24 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
     size : 100,
     space : 100,
     lineWidth : 5,
-    color : {fill:"#ED5566", stroke:"#000000"},
-    text : "SMASH"
+    color : {fill:"", stroke:""},
+    text : ""
   }, {
     x : GAME_SETTINGS.WIDTH/2+150,
     y : 220,
     size : 60,
     space : 60,
     lineWidth : 5,
-    color : {fill:"#128123", stroke:"#000000"},
-    text : "PONG"
+    color : {fill:"", stroke:""},
+    text : ""
   }, {
     x : GAME_SETTINGS.WIDTH/2+217,
     y : 165,
     size : 12,
     space : 12,
     lineWidth : 5,
-    color : {fill:"#000000"},
-    text : "Ver. " + GAME_SETTINGS.VER
+    color : {fill:""},
+    text : ""
   }];
   this.title=[];
   for(var i=0; i<titleSetting.length; i++){
