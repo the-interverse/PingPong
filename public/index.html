@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Ping-Pong Online</title>
+    <title>Yasser Noori | Pong</title>
   </head>
   <body>
     <script src="/socket.io/socket.io.js"></script>
@@ -197,7 +197,7 @@ $(function(){
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: 2,
-          message: "WAITING FOR OPPONENT..",
+          message: "Connecting Players...",
           globalAlpha: undefined,
           color: {fill: undefined, stroke: undefined},
           colorData: {
@@ -232,7 +232,7 @@ $(function(){
     ready.button1 = new ButtonObject();
     ready.button1.click = function(e){
       socket.emit('ready');
-      ready.text2.data.text.message = "WAITING FOR OPPONENT TO BE READY";
+      ready.text2.data.text.message = "Ready-Up...";
       ready.button1.data = null;
     };
     ready.button1.update = function(){
@@ -250,11 +250,11 @@ $(function(){
       var xPos
       switch(position){
         case "left":
-          message = "< YOU  "
+          message = "<— (me) "
           xPos = GAME_SETTINGS.WIDTH*1/4;
           break;
         case "right":
-          message = "  YOU >"
+          message = "  (me) —>"
           xPos = GAME_SETTINGS.WIDTH*3/4;
           break;
       }
@@ -285,7 +285,7 @@ $(function(){
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: 5,
-          message: "CLICK [READY] TO GET READY",
+          message: "Hurry, Ready-Up!",
           globalAlpha: undefined,
           color: {fill: undefined, stroke: undefined},
           colorData: {
@@ -314,7 +314,7 @@ $(function(){
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: undefined,
-          message: "READY",
+          message: "Ready?",
           color: {fill:undefined, stroke:undefined},
           colorData: {
             default: {fill:"#123456", stroke:undefined},
@@ -443,7 +443,7 @@ $(function(){
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: undefined,
-          message: message?message:"OPPONENT LEFT!",
+          message: message?message:"Player Quit!",
           globalAlpha: undefined,
           color: {fill: undefined, stroke: undefined},
           colorData: {default:{fill: "#000000", stroke: undefined}}
@@ -462,7 +462,7 @@ $(function(){
           textBaseline: "middle",
           textAlign: "center",
           lineWidth: undefined,
-          message: "GOING BACK TO START..",
+          message: "Back to Lobby...",
           globalAlpha: undefined,
           color: {fill: undefined, stroke: undefined},
           colorData: {default:{fill: "#000000", stroke: undefined}}
