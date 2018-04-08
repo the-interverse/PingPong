@@ -72,6 +72,7 @@ $(function(){
   
  function drawBackground(globalAlpha,color){
     ctx.save();
+	 drawGrid();
     ctx.globalAlpha = globalAlpha!==undefined?globalAlpha:1;
     ctx.fillStyle = color?color:GAME_SETTINGS.BACKGROUND_COLOR;
 	          var w = canvas.width;
@@ -101,7 +102,7 @@ $(function(){
 
         }
         
-drawGrid();
+
     ctx.fillRect(0,0,GAME_SETTINGS.WIDTH,GAME_SETTINGS.HEIGHT);
 	
     ctx.restore();
