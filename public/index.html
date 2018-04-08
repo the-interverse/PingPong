@@ -69,11 +69,36 @@ $(function(){
         break;
     }
   }
-  function drawBackground(globalAlpha,color){
+  function drawBackground(){
     ctx.save();
-    ctx.globalAlpha = globalAlpha!==undefined?globalAlpha:1;
-    ctx.fillStyle = color?color:GAME_SETTINGS.BACKGROUND_COLOR;
-    ctx.fillRect(0,0,GAME_SETTINGS.WIDTH,GAME_SETTINGS.HEIGHT);
+        var w = canvas.width;
+        var h = canvas.height;
+        var offsetX = 0;
+        var offsetY = 0;
+
+        function drawGrid() {
+
+            ctx.strokeStyle = "#999";
+            ctx.beginPath();
+            
+            // vertical grid lines
+            for (var x = offsetX; x < w; x += 20) {
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, h);
+            }
+            
+            // horizontal grid lines
+            for (var y = offsetY; y < h; y += 20) {
+                ctx.moveTo(0, y);
+                ctx.lineTo(w, y);
+            }
+
+            ctx.stroke();
+            ctx.fill();
+
+        }
+        
+drawGrid();
     ctx.restore();
   }
   function drawBorder(){
