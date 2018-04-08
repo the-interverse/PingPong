@@ -70,8 +70,11 @@ $(function(){
     }
   }
   
-  function drawBackground(){
-        var w = canvas.width;
+ function drawBackground(globalAlpha,color){
+    ctx.save();
+    ctx.globalAlpha = globalAlpha!==undefined?globalAlpha:1;
+    ctx.fillStyle = color?color:GAME_SETTINGS.BACKGROUND_COLOR;
+	          var w = canvas.width;
         var h = canvas.height;
         var offsetX = 0;
         var offsetY = 0;
@@ -99,7 +102,9 @@ $(function(){
         }
         
 drawGrid();
-
+    ctx.fillRect(0,0,GAME_SETTINGS.WIDTH,GAME_SETTINGS.HEIGHT);
+	
+    ctx.restore();
   }
   function drawBorder(){
     ctx.fillStyle = "#000000";
