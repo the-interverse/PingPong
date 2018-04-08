@@ -69,8 +69,8 @@ $(function(){
         break;
     }
   }
+  
   function drawBackground(){
-    ctx.save();
         var w = canvas.width;
         var h = canvas.height;
         var offsetX = 0;
@@ -99,7 +99,7 @@ $(function(){
         }
         
 drawGrid();
-    ctx.restore();
+
   }
   function drawBorder(){
     ctx.fillStyle = "#000000";
