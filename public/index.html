@@ -215,25 +215,20 @@ $(function(){
   var INTERVAL = 10;
   var socket = io();
   var canvas = document.createElement('canvas');
-  var canvas2 = document.createElement('canvas');
 	
   canvas.setAttribute("id", "canvas_id");
 	
-  $(canvas).css("display", "block");
+  $(canvas).css("display", "none");
   $(canvas).css("border", "black 1px solid");
   $(canvas).css("margin", "0 auto");
 	
-  $(canvas2).css("display", "block");
-  $(canvas2).css("border", "black 1px solid");
-  $(canvas2).css("margin", "0 auto");
 	
   var ctx = canvas.getContext("2d");
-  var ctx2 = canvas.getContext("2d");
+
   var serverObjects=[];
   var mainLoop = function(){};
 	
 	window.onload = function(){
-    document.getElementById("canvas_id").style.display = "none";
  setTimeout(function(){
     document.getElementById("loadingScreen").style.display = "none";
         document.getElementById("canvas_id").style.display = "block";
