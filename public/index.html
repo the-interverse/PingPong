@@ -17,6 +17,13 @@
   <body>
     <script src="/socket.io/socket.io.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+window.onload = function(){
+ setTimeout(function(){
+    document.getElementById("loadingScreen").style.display = "none";
+ }, 8000);
+};
+</script>
     <span id ='test'></span>
     <div id="loadingScreen">
 	<div class="glitch" data-text="Pongnite">Pongnite</div> 
@@ -25,6 +32,23 @@
 	<p class="loading">Loading. . .</p>
     </div>
     <style>
+
+b.ball {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: 30px auto 0;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: inset -25px -25px 40px rgba(0,0,0,.5);
+  background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);  
+  background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  position: absolute;
+  top: 50%;
+  right: 10%;
+}
 body {
   background: black;
   font-family: 'raleway', sans-serif;
