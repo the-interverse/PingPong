@@ -22,7 +22,7 @@ $(function(){
 	
   canvas.setAttribute("id", "canvas_id");
 	
-  $(canvas).css("display", "none");
+  $(canvas).css("display", "block");
   $(canvas).css("border", "black 1px solid");
   $(canvas).css("margin", "0 auto");
 	
@@ -31,13 +31,6 @@ $(function(){
 
   var serverObjects=[];
   var mainLoop = function(){};
-	
-	window.onload = function(){
- setTimeout(function(){
-    document.getElementById("loadingScreen").style.display = "none";
-        document.getElementById("canvas_id").style.display = "block";
- }, 8000);
-};
 	
   var interval = setInterval(function(){
     mainLoop();
