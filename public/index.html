@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <title>Yasser Noori | Pongnite</title> 
   </head>
-  <body style="background: #333333;">
+  <body>
     <script src="/socket.io/socket.io.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.js"></script>
     <span id ='test'></span>
@@ -87,7 +87,7 @@ $(function(){
         }
 
   function drawBorder(){
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "white";
     ctx.fillRect(0,0,GAME_SETTINGS.WIDTH,GAME_SETTINGS.BORDER_WIDTH);
     ctx.fillRect(0,GAME_SETTINGS.HEIGHT-GAME_SETTINGS.BORDER_WIDTH,GAME_SETTINGS.WIDTH,GAME_SETTINGS.BORDER_WIDTH);
   }
@@ -96,7 +96,7 @@ $(function(){
     var height = GAME_SETTINGS.HEIGHT/((num+1)*2);
     var y = height/2;
     var x = (GAME_SETTINGS.WIDTH-GAME_SETTINGS.NET.WIDTH)/2;
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "white";
     while(y < GAME_SETTINGS.HEIGHT){
         ctx.fillRect(x,y,GAME_SETTINGS.NET.WIDTH,height);
         y += height*2;
@@ -133,7 +133,7 @@ $(function(){
           color: {fill:undefined, stroke:undefined},
           colorData: {
             default: {fill:"white", stroke:undefined},
-            mouseover: {fill:"#efefef", stroke:undefined}
+            mouseover: {fill:"white", stroke:undefined}
           }
         },
         rect: {
@@ -144,8 +144,8 @@ $(function(){
           lineWidth: 2,
           color: {fill:undefined, stroke:undefined},
           colorData: {
-            default: {fill:"#5b5b5b", stroke:"#d6d6d6"},
-            mouseover: {fill:"#303030", stroke:"#d6d6d6"}
+            default: {fill:"black", stroke:"#d6d6d6"},
+            mouseover: {fill:"grey", stroke:"#d6d6d6"}
           }
         },
         animation: {
