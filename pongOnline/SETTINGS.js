@@ -1,7 +1,7 @@
 var SETTINGS = {
   VER : "1.0",
-  WIDTH : 600,
-  HEIGHT : 400,
+  WIDTH : window.innerWidth,
+  HEIGHT : window.innerHeight,
   BORDER_WIDTH : 10,
   BACKGROUND_COLOR : "#FFFFFF",
   PLAYER : {
