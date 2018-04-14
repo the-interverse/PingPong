@@ -51,7 +51,7 @@ Player.prototype.update = function(room){
       moveDown(player);
       this.mouse.click = null;
     }
-    if(this.mouse.click && ((this.mouse.click.x < player.x+80 && this.mouse.click.x > player.x-80)||(this.mouse.click.x === null))){
+    if(this.mouse.click && ((this.mouse.click.x < player.x+120 && this.mouse.click.x > player.x-120)||(this.mouse.click.x === null))){
       if(this.mouse.click.y<player.y-5){
         moveUp(player);
       } else if (this.mouse.click.y>player.y+5){
