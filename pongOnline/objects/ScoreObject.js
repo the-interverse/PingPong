@@ -15,8 +15,8 @@ function Score(id,position){
   this.playerId = id;
   this.status.shape = "text";
   this.status.text = {
-    color : {fill:"#123456"},
-    font : "Arial",
+    color : {fill:"black"},
+    font : "raleway",
     textAlign : "center",
     textBaseline : "middle",
     size : SETTINGS.SCORE.SIZE,
