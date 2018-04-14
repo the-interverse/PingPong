@@ -1,8 +1,8 @@
 var SETTINGS = {
   VER : "1.0",
-  WIDTH : window.innerWidth,
-  HEIGHT : window.innerHeight,
-  BORDER_WIDTH : 10,
+  WIDTH : 100%,
+  HEIGHT : 100%,
+  BORDER_WIDTH : 0,
   BACKGROUND_COLOR : "#FFFFFF",
   PLAYER : {
     WIDTH : 20,
