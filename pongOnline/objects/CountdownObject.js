@@ -8,8 +8,8 @@ function Countdown(count,xPos,yPos,size){
   this.createdAt = Date.now();
   this.status.shape = "text";
   this.status.text = {
-    color : {fill:"#123456",stroke:"#ffffff"},
-    font : "Arial",
+    color : {fill:"black",stroke:"#ffffff"},
+    font : "raleway",
     lineWidth : 10,
     textAlign : "center",
     textBaseline : "middle",
