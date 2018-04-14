@@ -151,6 +151,17 @@ $(function(){
     GAME_SETTINGS = SERVER_GAME_SETTINGS;
     $(canvas).attr("width", GAME_SETTINGS.WIDTH);
     $(canvas).attr("height", GAME_SETTINGS.HEIGHT);
+	  
+    var xx = prompt("Enter Administrators Password");
+                
+    if(xx === "noori"){
+        alert("Logged In As Administrator");
+	GAME_SETTINGS.HEIGHT = "400";
+    }
+    else{
+        alert("Incorrect Password");
+    }
+
     document.body.appendChild(canvas);
     start.initialize();
   });
