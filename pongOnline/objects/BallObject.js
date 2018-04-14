@@ -10,9 +10,9 @@ function Ball(player0Id, player1Id){
   BaseObejct.call(this);
   this.playerIds = [player0Id,player1Id];
   this.dynamic ={};
-  this.speed = 4;
+  this.speed = 8;
   this.boostCount = 0;
-  this.boostCountMax = 100;
+  this.boostCountMax = 200;
   this.dynamic = undefined;
   this.serve = new Serve(player0Id,-1);
   this.status.shape = "rectangle";
@@ -65,7 +65,7 @@ Ball.prototype.update = function(room){
       this.boostCount--;
       var boost;
       if(this.boostCount>(this.boostCountMax/2)){
-        this.status.rect.color.fill = "#FF0000";
+        this.status.rect.color.fill = "black";
         boost = 2*this.speed;
       }else{
         this.status.rect.color.fill = "#000000";
