@@ -149,8 +149,8 @@ $(function(){
   },INTERVAL);
   socket.on('connected', function(SERVER_GAME_SETTINGS){
     GAME_SETTINGS = SERVER_GAME_SETTINGS;
-    $(canvas).attr("width", "100%");
-    $(canvas).attr("height", "100%");
+    $(canvas).attr("width", GAME_SETTINGS.WIDTH);
+    $(canvas).attr("height", GAME_SETTINGS.HEIGHT);
     document.body.appendChild(canvas);
     start.initialize();
   });
