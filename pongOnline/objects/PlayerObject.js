@@ -7,6 +7,8 @@ var UNIT = 2;
 function Player(id,position){
   BaseObejct.call(this);
   var color = "black";
+    for(var i = 0; i < 6; i++ ){
+    color = "black";
   }
   var xPos;
   switch(position){
