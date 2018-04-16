@@ -66,10 +66,10 @@ Player.prototype.update = function(room){
 module.exports = Player;
 
 function moveUp(player){
-  if(player.y - player.height/2 - UNIT >= 0 + SETTINGS.BORDER_WIDTH)
+  if(player.y - player.height/2 - 2 - UNIT >= 0 + SETTINGS.BORDER_WIDTH)
    player.y -= UNIT;
 }
 function moveDown(player){
-  if(player.y + player.height/2 + UNIT <= SETTINGS.HEIGHT - SETTINGS.BORDER_WIDTH)
+  if(player.y + player.height/2 + 2 + UNIT <= SETTINGS.HEIGHT - SETTINGS.BORDER_WIDTH)
     player.y += UNIT;
 }
