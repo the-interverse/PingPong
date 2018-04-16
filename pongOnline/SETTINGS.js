@@ -11,8 +11,8 @@ var SETTINGS = {
     GAP : 25
   },
   BALL : {
-    WIDTH : 100,
-    HEIGHT : 100,
+    WIDTH : 50,
+    HEIGHT : 50,
   },
   NET : {
     WIDTH : 6
