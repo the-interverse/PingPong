@@ -345,7 +345,7 @@ $(function(){
     ready.button1 = new ButtonObject();
     ready.button1.click = function(e){
       socket.emit('ready');
-      ready.text2.data.text.message = "Players Preparing For Match";
+      ready.text2.data.text.message = "Starting. . .";
       ready.button1.data = null;
     };
     ready.button1.update = function(){
