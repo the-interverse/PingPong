@@ -240,17 +240,17 @@ $(function(){
       start.button1.initialize(canvas,ctx,GAME_SETTINGS,{
         text:{
           x: undefined,
-          y: 310,
+          y: 750,
           size: 30,
           font: "raleway",
           textBaseline: "middle",
           textAlign: "center",
-          lineWidth: 1,
+          lineWidth: 2,
           message: "Ready",
           color: {fill:"white", stroke:undefined},
           colorData: {
-            default: {fill:"black", stroke:undefined},
-            mouseover: {fill:"black", stroke:undefined}
+            default: {fill:"black", stroke:"black"},
+            mouseover: {fill:"grey", stroke:"grey"}
           }
         },
         rect: {
@@ -258,11 +258,11 @@ $(function(){
           y: undefined,
           width: 230,
           height: 50,
-          lineWidth: 1,
+          lineWidth: 2,
           color: {fill:undefined, stroke:undefined},
           colorData: {
             default: {fill:undefined, stroke:"black"},
-            mouseover: {fill:undefined, stroke:"black"}
+            mouseover: {fill:undefined, stroke:"grey"}
           }
         },
         animation: {
