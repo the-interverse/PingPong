@@ -24,8 +24,8 @@
 	 z-index: 100;
 	 position: absolute;
    	 top: 20%;
-	 right: 35%;
-	 text-align: center;
+	 justify-content: center;
+         align-items: center;
 	 
 }
  .text {
@@ -108,8 +108,8 @@ class TextScramble {
 
 const phrases = [
   'Yasser Noori | Pongnite',
-  '___ Multi-Player PVP ___',
-  '______ PONG-NITE ______'
+  'Multi-Player PVP',
+  'PONGNITE'
 ]
 
 const el = document.querySelector('.text')
@@ -118,7 +118,7 @@ const fx = new TextScramble(el)
 let counter = 0
 const next = () => {
   fx.setText(phrases[counter]).then(() => {
-    setTimeout(next, 1500)
+    setTimeout(next, 1700)
   })
   counter = (counter + 1) % phrases.length
 }
