@@ -35,6 +35,86 @@
  .dud {
 	 color: #757575;
 }
+	    
+.customAlert{
+	
+  display: none;
+  position: fixed;
+  max-width: 25%;
+  min-width: 250px !important;
+  min-height: 20%;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-left: -12.5%;
+  margin-top: -5.2%;
+  background: #333;
+  
+  @media all and (max-width: 1300px){
+    .message{
+      font-size: 14px !important;
+    }
+    input[type='button']{
+      height: 15% !important;
+    }
+  }
+  
+  .message{
+    padding: 5px;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+  }
+    
+  input[type='button']{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 50%;
+    height: 36px;
+    margin-top: -45px;
+    margin-left: -25%;
+    outline: 0;
+    border: 0;
+    background: #fff;
+    color: black;
+    &:hover{
+      transition: 0.3s;
+      cursor: pointer;
+    	background: lighten(grey, 5%);  
+    }
+  } 
+}
+      
+.rab{
+  width: 200px;
+  height: 30px;
+  outline: 0;
+  border: 0;
+  color: white;
+  background: darken(grey, 5%);
+}
+      
+@keyframes fadeOut{
+	from{
+  	opacity: 1;
+  } 
+  to{
+    opacity: 0;
+  }
+}
+    
+@keyframes fadeIn{
+	from{
+  	opacity: 0;
+  } 
+  to{
+    opacity: 1;
+  }
+}
     </style>
   </head>
   <body>
@@ -126,12 +206,61 @@ const next = () => {
 }
 
 next()
-	};
+	    
+var currentCallback;
+
+// override default browser alert
+window.alert = function(msg, callback){
+  $('.message').text(msg);
+  $('.customAlert').css('animation', 'fadeIn 0.3s linear');
+  $('.customAlert').css('display', 'inline');
+  setTimeout(function(){
+    $('.customAlert').css('animation', 'none');
+  }, 300);
+  currentCallback = callback;
+}
+
+$(function(){
+  
+  // add listener for when our confirmation button is clicked
+	$('.confirmButton').click(function(){
+    $('.customAlert').css('animation', 'fadeOut 0.3s linear');
+    setTimeout(function(){
+     $('.customAlert').css('animation', 'none');
+		$('.customAlert').css('display', 'none');
+    }, 300);
+    currentCallback();
+  })
+  
+  $('.rab').click(function(){
+    alert("Game Play: Use 'UP' & 'DOWN' keys to control you Ping-Pong Paddle <br> Score points by hitting the ball towards your opponent. \n First one to 5 wins \n \n (c) Yasser Noori, 2018", function(){
+      console.log("Callback executed");
+    })
+  });
+  
+  // our custom alert box
+  setTimeout(function(){
+    alert("Game-Play: Use 'UP' & 'DOWN' keys to control your Ping-Pong Paddle. Score points by hitting the ball towards your opponent. First one to 5 wins.", function(){
+        console.log("Callback executed");
+      });
+  }, 500);
+});
+    };
     </script>
+	  
     <span id ='test'></span>
+	  
+    <div style="position:absolute;top:100%;right:100%" class='customAlert'>
+        <p class='message'></p>
+	<input type='button' class='confirmButton' value='Ok'>
+    </div>
+  
+    <input type='button' class='rab' value='Information'>
+	  
     <div class="container">
         <div style="position:absolute;top:20%;" class="text"></div>
     </div>
+	  
 <script>
 $(function(){
   var GAME_SETTINGS = null;
