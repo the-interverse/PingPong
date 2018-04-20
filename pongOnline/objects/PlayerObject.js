@@ -67,9 +67,9 @@ module.exports = Player;
 
 function moveUp(player){
   if(player.y - player.height/2 - UNIT >= 0 + SETTINGS.BORDER_WIDTH)
-   player.y -= UNIT + 3;
+   player.y -= UNIT + 5;
 }
 function moveDown(player){
   if(player.y + player.height/2 + UNIT <= SETTINGS.HEIGHT - SETTINGS.BORDER_WIDTH)
-    player.y += UNIT + 3;
+    player.y += UNIT + 5;
 }
