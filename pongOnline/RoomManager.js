@@ -108,10 +108,8 @@ var playing = {
     if(room.status == "gameOver" && room.gameOverDelay--<0){
       if(room.objects[room.players[0].id].score>room.objects[room.players[1].id].score){
         room.RmMg.gameOver(room.id,room.players[0].id);
-        alert('winner');
       } else {
         room.RmMg.gameOver(room.id,room.players[1].id);
-        alert('winner');
       }
     }
   }
