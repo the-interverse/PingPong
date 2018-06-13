@@ -15,7 +15,7 @@ function Ball(player0Id, player1Id){
   this.boostCountMax = 150;
   this.dynamic = undefined;
   this.serve = new Serve(player0Id,-1);
-  this.status.shape = "rectangle";
+  this.status.shape = "circle";
   this.status.rect = {
     x : SETTINGS.WIDTH/2,
     y : SETTINGS.HEIGHT/2,
