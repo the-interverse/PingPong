@@ -33,6 +33,7 @@ function RoomManager(io){
     delete RmMg.rooms[roomId];
   };
   RmMg.gameOver = function(roomId,winner){
+    win();
     var room = RmMg.rooms[roomId];
     
     room.players.forEach(function(socket){
@@ -128,6 +129,6 @@ function getStatsFromObjects(room){
   });
   return statuses;
 }
-if(socket.id==winner){
+function win(){
   alert('winner');
 }
