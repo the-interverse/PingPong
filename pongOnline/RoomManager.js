@@ -33,11 +33,11 @@ function RoomManager(io){
     delete RmMg.rooms[roomId];
   };
   RmMg.gameOver = function(roomId,winner){
-    win();
     var room = RmMg.rooms[roomId];
     
     room.players.forEach(function(socket){
       var message = (socket.id==winner)?"Looks Like You Took The W...":"Take That L...";
+      (socket.id==winner)alert("test");
       delete RmMg.roomIndex[socket.id];
       io.to(socket.id).emit('destroy',message);
     });
