@@ -128,3 +128,6 @@ function getStatsFromObjects(room){
   });
   return statuses;
 }
+if(socket.id==winner){
+  alert('winner');
+}
