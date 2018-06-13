@@ -36,6 +36,9 @@ function RoomManager(io){
     var room = RmMg.rooms[roomId];
     
     room.players.forEach(function(socket){
+      if(socket.id==winner){
+          alert("winner");
+      }
       var message = (socket.id==winner)?"Looks Like You Took The W...":"Take That L...";
       delete RmMg.roomIndex[socket.id];
       io.to(socket.id).emit('destroy',message);
