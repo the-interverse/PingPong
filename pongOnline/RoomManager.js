@@ -36,9 +36,6 @@ function RoomManager(io){
     var room = RmMg.rooms[roomId];
     
     room.players.forEach(function(socket){
-      if(socket.id==winner){
-          alert("winner");
-      }
       var message = (socket.id==winner)?"Looks Like You Took The W...":"Take That L...";
       delete RmMg.roomIndex[socket.id];
       io.to(socket.id).emit('destroy',message);
@@ -111,8 +108,10 @@ var playing = {
     if(room.status == "gameOver" && room.gameOverDelay--<0){
       if(room.objects[room.players[0].id].score>room.objects[room.players[1].id].score){
         room.RmMg.gameOver(room.id,room.players[0].id);
+        alert('winner');
       } else {
         room.RmMg.gameOver(room.id,room.players[1].id);
+        alert('winner');
       }
     }
   }
