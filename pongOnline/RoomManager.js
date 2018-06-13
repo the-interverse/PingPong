@@ -34,7 +34,7 @@ function RoomManager(io){
   };
   RmMg.gameOver = function(roomId,winner){
     var room = RmMg.rooms[roomId];
-    functon(){wins += 1}
+    
     room.players.forEach(function(socket){
       var message = (socket.id==winner)?"Looks Like You Took The W...":"Take That L...";
       delete RmMg.roomIndex[socket.id];
