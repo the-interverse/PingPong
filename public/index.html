@@ -42,9 +42,16 @@ canvas {
     </div>
 	  
     <div>
-	    <span class="wins">Pongnite Wins: <b>0</b></span>
+	    <span class="wins">Pongnite Wins: <b id="wins">0</b></span>
     </div>
 <script>
+
+    // Store
+    localStorage.setItem("wins", "0");
+    // Retrieve
+    document.getElementById("wins").innerHTML = localStorage.getItem("wins");
+
+
 $(function(){
   var GAME_SETTINGS = null;
   var INTERVAL = 10;
