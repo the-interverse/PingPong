@@ -1,5 +1,5 @@
 SETTINGS = {
-  VER : "1.0",
+  VER : "2.3.5",
   WIDTH : 1200,
   HEIGHT : 800,
   BORDER_WIDTH : 0,
