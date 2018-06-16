@@ -609,7 +609,7 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
     text : "Pongnite"
   }, {
     x : GAME_SETTINGS.WIDTH/2,
-    y : 220,
+    y : 250,
     size : 60,
     space : 45,
     lineWidth : 5,
@@ -623,6 +623,14 @@ Opening.prototype.initialize = function(canvas,ctx,GAME_SETTINGS){
     lineWidth : 5,
     color : {fill:"#000000"},
     text : "Version " + GAME_SETTINGS.VER
+  }, {
+    x : GAME_SETTINGS.WIDTH/2+217,
+    y : 300,
+    size : 12,
+    space : 12,
+    lineWidth : 5,
+    color : {fill:"#000000"},
+    text : "By Yasser Noori"
   }];
   this.title=[];
   for(var i=0; i<titleSetting.length; i++){
