@@ -6,9 +6,9 @@ var UNIT = 2;
 
 function Player(id,position){
   BaseObejct.call(this);
-  var color = "black";
-    for(var i = 0; i < 6; i++ ){
-    color = "black";
+  var color = "#";
+  for(var i = 0; i < 6; i++ ){
+    color += (Math.floor(Math.random()*16)).toString(16);
   }
   var xPos;
   switch(position){
@@ -51,10 +51,10 @@ Player.prototype.update = function(room){
       moveDown(player);
       this.mouse.click = null;
     }
-    if(this.mouse.click && ((this.mouse.click.x < player.x+15 && this.mouse.click.x > player.x-15)||(this.mouse.click.x === null))){
-      if(this.mouse.click.y<player.y-10){
+    if(this.mouse.click && ((this.mouse.click.x < player.x+50 && this.mouse.click.x > player.x-50)||(this.mouse.click.x === null))){
+      if(this.mouse.click.y<player.y-5){
         moveUp(player);
-      } else if (this.mouse.click.y>player.y+10){
+      } else if (this.mouse.click.y>player.y+5){
         moveDown(player);
       } else {
         this.mouse.click = null;
