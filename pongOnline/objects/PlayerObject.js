@@ -6,9 +6,8 @@ var UNIT = 2;
 
 function Player(id,position){
   BaseObejct.call(this);
-  var color = "#";
+  var color = "black";
   for(var i = 0; i < 6; i++ ){
-    color += (Math.floor(Math.random()*16)).toString(16);
   }
   var xPos;
   switch(position){
