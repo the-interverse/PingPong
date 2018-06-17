@@ -11,8 +11,8 @@ function Spark(x,y){
   this.blinkingTerm = Math.random()*5;
   this.status.shape = "rectangle";
   this.status.rect = {
-    height : 5,
-    width : 5,
+    height : 8,
+    width : 8,
     x : x,
     y : y,
     color : {fill:"red"},
@@ -25,7 +25,7 @@ Spark.prototype.update = function(room){
   if(this.count>0){
     this.count--;
     var power = Math.pow(this.count,3)/Math.pow(this.countMax,3);
-    this.status.rect.globalAlpha = (this.count%10>this.blinkingTerm&&this.count%10<this.blinkingTerm+5)?this.count/this.countMax:0;
+    this.status.rect.globalAlpha = (this.count%20>this.blinkingTerm&&this.count%10<this.blinkingTerm+5)?this.count/this.countMax:0;
     this.status.rect.x += power*this.xPower;
     this.status.rect.y += power*this.yPower;
   } else {
