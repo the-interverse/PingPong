@@ -3,19 +3,19 @@ var BaseObejct = require("./BaseObject.js");
 
 function Spark(x,y){
   BaseObejct.call(this);
-  this.countMax = 100;
-  this.count = 100;
-  var test =5;
+  this.countMax = 200;
+  this.count = 200;
+  var test =8;
   this.xPower = -test+Math.random()*test*2;
   this.yPower = -test+Math.random()*test*2;
   this.blinkingTerm = Math.random()*5;
   this.status.shape = "rectangle";
   this.status.rect = {
-    height : 10,
-    width : 10,
+    height : 15,
+    width : 15,
     x : x,
     y : y,
-    color : {fill:"#000000"},
+    color : {fill:"ff0000"},
     globalAlpha : 1
   };
 }
