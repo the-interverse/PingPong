@@ -11,8 +11,8 @@ function Spark(x,y){
   this.blinkingTerm = Math.random()*5;
   this.status.shape = "rectangle";
   this.status.rect = {
-    height : 15,
-    width : 15,
+    height : 5,
+    width : 5,
     x : x,
     y : y,
     color : {fill:"red"},
