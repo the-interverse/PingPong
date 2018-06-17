@@ -5,7 +5,7 @@ function Spark(x,y){
   BaseObejct.call(this);
   this.countMax = 100;
   this.count = 100;
-  var test =8;
+  var test =5;
   this.xPower = -test+Math.random()*test*2;
   this.yPower = -test+Math.random()*test*2;
   this.blinkingTerm = Math.random()*5;
@@ -15,7 +15,7 @@ function Spark(x,y){
     width : 15,
     x : x,
     y : y,
-    color : {fill:"ff0000"},
+    color : {fill:"red"},
     globalAlpha : 1
   };
 }
