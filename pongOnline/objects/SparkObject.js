@@ -25,7 +25,7 @@ Spark.prototype.update = function(room){
   if(this.count>0){
     this.count--;
     var power = Math.pow(this.count,3)/Math.pow(this.countMax,3);
-    this.status.rect.globalAlpha = (this.count%20>this.blinkingTerm&&this.count%10<this.blinkingTerm+15)?this.count/this.countMax:0;
+    this.status.rect.globalAlpha = (this.count%10>this.blinkingTerm&&this.count%10<this.blinkingTerm+5)?this.count/this.countMax:0;
     this.status.rect.x += power*this.xPower;
     this.status.rect.y += power*this.yPower;
   } else {
