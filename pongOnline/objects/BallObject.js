@@ -1,4 +1,4 @@
-ar SETTINGS = require("../SETTINGS.js");
+var SETTINGS = require("../SETTINGS.js");
 var BaseObejct = require("./BaseObject.js");
 var Spark = require("./SparkObject.js");
 
