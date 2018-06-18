@@ -26,7 +26,7 @@ function RoomManager(io){
   RmMg.destroy = function(roomId){
     var room = RmMg.rooms[roomId];
     room.players.forEach(function(socket){
-      var message = (!room.objects[socket.id].ready&&!room.objects.countdown)?"We Don't Got All Day...":null;
+      var message = (!room.objects[socket.id].ready&&!room.objects.countdown)?"We Don't Got All Day. . .":null;
       delete RmMg.roomIndex[socket.id];
       io.to(socket.id).emit('destroy',message);
     });
@@ -34,7 +34,6 @@ function RoomManager(io){
   };
   RmMg.gameOver = function(roomId,winner){
     var room = RmMg.rooms[roomId];
-    
     room.players.forEach(function(socket){
       var message = (socket.id==winner)?"Looks Like You Took The W. . . ":"Myute, Take That L. . .";
       delete RmMg.roomIndex[socket.id];
@@ -127,7 +126,4 @@ function getStatsFromObjects(room){
     statuses.push(effect.status);
   });
   return statuses;
-}
-function win(){
-  alert('winner');
 }
