@@ -14,7 +14,7 @@ SETTINGS = {
     HEIGHT : 50,
   },
   NET : {
-    WIDTH : 6
+    WIDTH : 8
   },
   SCORE : {
     Y : 40,
