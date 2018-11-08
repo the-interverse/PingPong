@@ -6,12 +6,12 @@ SETTINGS = {
   BACKGROUND_COLOR : "#FFFFFF",
   PLAYER : {
     WIDTH : 20,
-    HEIGHT : 165,
+    HEIGHT : 90,
     GAP : 25
   },
   BALL : {
-    WIDTH : 50,
-    HEIGHT : 50,
+    WIDTH : 25,
+    HEIGHT : 25,
   },
   NET : {
     WIDTH : 8
@@ -26,7 +26,7 @@ SETTINGS = {
   STRAIGHT_ADJUST : 7,
   STRATGHT_ANGLE : 7,
   SERVE_ANGLE : 15,
-  GOAL : 8
+  GOAL : 15
 };
 SETTINGS.CLIENT_SETTINGS = {
   VER : SETTINGS.VER,
