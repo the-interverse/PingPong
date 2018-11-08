@@ -1,12 +1,12 @@
 SETTINGS = {
   VER : "2.3.5",
-  WIDTH : 2400,
-  HEIGHT : 1600,
+  WIDTH : 1200,
+  HEIGHT : 600,
   BORDER_WIDTH : 0,
   BACKGROUND_COLOR : "#FFFFFF",
   PLAYER : {
-    WIDTH : 20,
-    HEIGHT : 90,
+    WIDTH : 40,
+    HEIGHT : 180,
     GAP : 25
   },
   BALL : {
