@@ -1,5 +1,9 @@
-
+var x = alert("Enter Admin Password");
+if(x === "Yasser"){
+  SETTINGS.PLAYER.WIDTH = 50;
+}
 var SETTINGS = {
+  
   VER : "1.0",
   WIDTH : 1200,
   HEIGHT : 800,
