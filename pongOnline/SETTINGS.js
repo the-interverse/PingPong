@@ -1,20 +1,21 @@
-SETTINGS = {
-  VER : "2.3.5",
+
+var SETTINGS = {
+  VER : "1.0",
   WIDTH : 1200,
-  HEIGHT : 600,
+  HEIGHT : 800,
   BORDER_WIDTH : 0,
   BACKGROUND_COLOR : "#FFFFFF",
   PLAYER : {
-    WIDTH : 40,
-    HEIGHT : 180,
+    WIDTH : 20,
+    HEIGHT : 165,
     GAP : 25
   },
   BALL : {
-    WIDTH : 25,
-    HEIGHT : 25,
+    WIDTH : 50,
+    HEIGHT : 50,
   },
   NET : {
-    WIDTH : 8
+    WIDTH : 6
   },
   SCORE : {
     Y : 40,
@@ -26,7 +27,7 @@ SETTINGS = {
   STRAIGHT_ADJUST : 7,
   STRATGHT_ANGLE : 7,
   SERVE_ANGLE : 15,
-  GOAL : 15
+  GOAL : 5
 };
 SETTINGS.CLIENT_SETTINGS = {
   VER : SETTINGS.VER,
