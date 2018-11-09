@@ -1,9 +1,7 @@
-var x = alert("Enter Admin Password");
-if(x === "Yasser"){
-  SETTINGS.PLAYER.WIDTH = 50;
-}
+
+
 var SETTINGS = {
-  
+  X: alert("Enter Admin Password"),
   VER : "1.0",
   WIDTH : 1200,
   HEIGHT : 800,
@@ -11,7 +9,7 @@ var SETTINGS = {
   BACKGROUND_COLOR : "#FFFFFF",
   PLAYER : {
     WIDTH : 20,
-    HEIGHT : 165,
+    HEIGHT : x, //165
     GAP : 25
   },
   BALL : {
