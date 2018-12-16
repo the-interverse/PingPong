@@ -1,6 +1,11 @@
 var SETTINGS = require("../SETTINGS.js");
 var BaseObejct = require("./BaseObject.js");
 
+
+socket.on('adduser', function (name) {
+      var val = name;
+});
+
 var LEFT = 37, UP = 38, RIGHT = 39, DOWN = 40;
 var UNIT = 2;
 
@@ -30,7 +35,7 @@ function Player(id,position){
   };
 
   this.status.rect = {
-    height : SETTINGS.PLAYER.HEIGHT,
+    height : val,
     width : SETTINGS.PLAYER.WIDTH,
     x : xPos,
     y : SETTINGS.HEIGHT/2,
