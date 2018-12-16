@@ -50,6 +50,24 @@ $(function(){
 
   var serverObjects=[];
   var mainLoop = function(){};
+
+	
+	
+    // MOD SNIPPET
+	
+    socket.on('entrance', function  (data) {
+
+        //STORE USERNAME of NEW SOCKET
+        // on connection to server, ask for user's name with an anonymous callback
+        socket.on('connect', function(){
+        // call the server-side function 'adduser' and send one parameter (value of prompt)
+        socket.emit('adduser', prompt("Enter Value"));
+        });
+    });
+	
+    // End Of Mod Snippet	
+	
+	
 	
   var interval = setInterval(function(){
     mainLoop();
