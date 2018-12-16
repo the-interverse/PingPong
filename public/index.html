@@ -38,7 +38,7 @@ $(function(){
   var socket = io();
   var canvas = document.createElement('canvas');
  
-
+  var val = prompt('Enter Value');
 	
   canvas.setAttribute("id", "canvas_id");
 	
@@ -281,11 +281,11 @@ $(function(){
       var xPos
       switch(position){
         case "left":
-          message = "(me)"
+          message = val
           xPos = GAME_SETTINGS.WIDTH*1/4;
           break;
         case "right":
-          message = "  (me)"
+          message = val
           xPos = GAME_SETTINGS.WIDTH*3/4;
           break;
       }
