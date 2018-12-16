@@ -1,6 +1,3 @@
-socket.on('adduser', function (name) {
-      var x = name;
-});
 
 var SETTINGS = {
   VER : "1.0",
@@ -10,7 +7,7 @@ var SETTINGS = {
   BACKGROUND_COLOR : "#FFFFFF",
   PLAYER : {
     WIDTH : 20,
-    HEIGHT : x, //165
+    HEIGHT : 165, //165
     GAP : 25
   },
   BALL : {
