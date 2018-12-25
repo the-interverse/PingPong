@@ -1,1 +1,1 @@
-var bb = prompt("enter value"); 
+var bb : prompt("enter value"); 
