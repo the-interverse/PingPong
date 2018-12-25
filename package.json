@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imtaekh/online_ping_pong.git"
+    "url": "git+https://github.com/8puri/PingPong.git"
   },
   "keywords": [
     "node",
@@ -19,9 +19,9 @@
   "author": "Yasser Noori",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/imtaekh/online_ping_pong/issues"
+    "url": "https://github.com/8puri/PingPong/issues"
   },
-  "homepage": "https://github.com/imtaekh/online_ping_pong#readme",
+  "homepage": "https://github.com/8puri/PingPong#readme",
   "dependencies": {
     "express": "^4.13.4",
     "socket.io": "^1.4.5",
