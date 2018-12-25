@@ -19,7 +19,6 @@ var gameManager = new (require('./pongOnline/GameManager.js'))(io, roomManager);
 var aa = new (require('./pongOnline/test.js'))(io);
 
 io.on('connection', function(socket){
-  io.to(socket.id).emit('connected', SETTINGS.SETTINGS.BALL.WIDTH = bb);
   io.to(socket.id).emit('connected', SETTINGS.CLIENT_SETTINGS);
   console.log('user connected: ', socket.id);
 
