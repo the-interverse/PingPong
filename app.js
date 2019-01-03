@@ -16,7 +16,6 @@ var SETTINGS = require("./pongOnline/SETTINGS.js");
 var lobbyManager = new (require('./pongOnline/LobbyManager.js'))(io);
 var roomManager = new (require('./pongOnline/RoomManager.js'))(io);
 var gameManager = new (require('./pongOnline/GameManager.js'))(io, roomManager);
-var aa = new (require('./pongOnline/test.js'))(io);
 
 io.on('connection', function(socket){
   io.to(socket.id).emit('connected', SETTINGS.CLIENT_SETTINGS);
