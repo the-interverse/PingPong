@@ -8,13 +8,11 @@
     <title>Yasser Noori — Pongnite</title> 
     <style>
 @import url("https://fonts.googleapis.com/css?family=Raleway");
-
  html, body, canvas {
 	 font-family: 'raleway', monospace;
 	 background: #fff;
 	 border: none;
 }
-
 canvas {
 	 z-index: -50;  
 	 border: none;
@@ -30,15 +28,12 @@ canvas {
         <div style="color: inherit;font-size:30px;width:100%;background:#f1f1f1;color:#000000;padding-left:50px"><a style="color: inherit" href="https://yassers-chat.herokuapp.com" target="_blank">Official Pongnite Chat</a></div>
     </header>
 <script>
-
-
 $(function(){
   var GAME_SETTINGS = null;
   var INTERVAL = 10;
   var socket = io();
   var canvas = document.createElement('canvas');
  
-  var val = prompt('Enter Value');
 	
   canvas.setAttribute("id", "canvas_id");
 	
@@ -47,27 +42,8 @@ $(function(){
 	
 	
   var ctx = canvas.getContext("2d");
-
   var serverObjects=[];
   var mainLoop = function(){};
-
-	
-	
-    // MOD SNIPPET
-	
-    socket.on('entrance', function  (data) {
-
-        //STORE USERNAME of NEW SOCKET
-        // on connection to server, ask for user's name with an anonymous callback
-        socket.on('connect', function(){
-        // call the server-side function 'adduser' and send one parameter (value of prompt)
-        socket.emit('adduser', prompt("Enter Value"));
-        });
-    });
-	
-    // End Of Mod Snippet	
-	
-	
 	
   var interval = setInterval(function(){
     mainLoop();
@@ -76,7 +52,6 @@ $(function(){
     GAME_SETTINGS = SERVER_GAME_SETTINGS;
     $(canvas).attr("width", GAME_SETTINGS.WIDTH);
     $(canvas).attr("height", GAME_SETTINGS.HEIGHT);
-
     document.body.appendChild(canvas);
     start.initialize();
   });
@@ -121,7 +96,6 @@ $(function(){
             ctx.fillRect(0, 0, GAME_SETTINGS.WIDTH, GAME_SETTINGS.HEIGHT);
             ctx.restore();
         }
-
   function drawBorder(){
     ctx.fillStyle = "white";
     ctx.fillRect(0,0,GAME_SETTINGS.WIDTH,GAME_SETTINGS.BORDER_WIDTH);
@@ -281,11 +255,11 @@ $(function(){
       var xPos
       switch(position){
         case "left":
-          message = val
+          message = "(me)"
           xPos = GAME_SETTINGS.WIDTH*1/4;
           break;
         case "right":
-          message = val
+          message = "  (me)"
           xPos = GAME_SETTINGS.WIDTH*3/4;
           break;
       }
