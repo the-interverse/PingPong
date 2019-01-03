@@ -1,18 +1,17 @@
-
 var SETTINGS = {
   VER : "1.0",
-  WIDTH : 1200,
-  HEIGHT : 800,
-  BORDER_WIDTH : 0,
+  WIDTH : 600,
+  HEIGHT : 400,
+  BORDER_WIDTH : 10,
   BACKGROUND_COLOR : "#FFFFFF",
   PLAYER : {
     WIDTH : 20,
-    HEIGHT : 165, //165
-    GAP : 25
+    HEIGHT : 80,
+    GAP : 30
   },
   BALL : {
-    WIDTH : 50,
-    HEIGHT : 50,
+    WIDTH : 15,
+    HEIGHT : 15,
   },
   NET : {
     WIDTH : 6
@@ -26,7 +25,7 @@ var SETTINGS = {
   EDGE_ANGLE : 6,
   STRAIGHT_ADJUST : 7,
   STRATGHT_ANGLE : 7,
-  SERVE_ANGLE : 15,
+  SERVE_ANGLE : 30,
   GOAL : 5
 };
 SETTINGS.CLIENT_SETTINGS = {
