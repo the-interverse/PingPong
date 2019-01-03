@@ -6,8 +6,9 @@ var UNIT = 2;
 
 function Player(id,position){
   BaseObejct.call(this);
-  var color = "black";
+  var color = "#";
   for(var i = 0; i < 6; i++ ){
+    color += (Math.floor(Math.random()*16)).toString(16);
   }
   var xPos;
   switch(position){
@@ -66,9 +67,9 @@ module.exports = Player;
 
 function moveUp(player){
   if(player.y - player.height/2 - UNIT >= 0 + SETTINGS.BORDER_WIDTH)
-   player.y -= UNIT + 5;
+   player.y -= UNIT;
 }
 function moveDown(player){
   if(player.y + player.height/2 + UNIT <= SETTINGS.HEIGHT - SETTINGS.BORDER_WIDTH)
-    player.y += UNIT + 5;
+    player.y += UNIT;
 }
