@@ -5,13 +5,13 @@ var SETTINGS = {
   BORDER_WIDTH : 10,
   BACKGROUND_COLOR : "#FFFFFF",
   PLAYER : {
-    WIDTH : 20,
-    HEIGHT : 80,
+    WIDTH : 30,
+    HEIGHT : 170,
     GAP : 30
   },
   BALL : {
-    WIDTH : 15,
-    HEIGHT : 15,
+    WIDTH : 3,
+    HEIGHT : 3,
   },
   NET : {
     WIDTH : 6
