@@ -16,8 +16,6 @@
 canvas {
 	 z-index: -50;  
 	 border: none;
-	width: 100%;
-	height: 100%;
 }	        
     </style>
   </head>
@@ -27,7 +25,7 @@ canvas {
 
 	    
     <header>
-        <div style="color: inherit;font-size:30px;width:100%;background:#f1f1f1;color:#000000;padding-left:50px">By Yasser Noori</div>
+        <div style="color: inherit;font-size:30px;width:100%;background:#f1f1f1;color:#000000;padding-left:50px"><a style="color: inherit" href="https://yassers-chat.herokuapp.com" target="_blank">Official Pongnite Chat</a></div>
     </header>
 <script>
 $(function(){
@@ -47,8 +45,23 @@ $(function(){
   var ctx = canvas.getContext("2d");
   var serverObjects=[];
   var mainLoop = function(){};
-
-		
+	
+	
+    // MOD SNIPPET
+	
+    socket.on('entrance', function  (data) {
+        //STORE USERNAME of NEW SOCKET
+        // on connection to server, ask for user's name with an anonymous callback
+        socket.on('connect', function(){
+        // call the server-side function 'adduser' and send one parameter (value of prompt)
+        socket.emit('adduser', prompt("Enter Value"));
+        });
+    });
+	
+    // End Of Mod Snippet	
+	
+	
+	
   var interval = setInterval(function(){
     mainLoop();
   },INTERVAL);
